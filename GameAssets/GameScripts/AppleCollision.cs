@@ -18,7 +18,8 @@ public class AppleCollision : MonoBehaviour {
 	}
 
 	 void OnTriggerEnter2D(Collider2D coll) {
-		 Debug.Log("Collided with");
+		Debug.Log("Collided with");
+
         if (coll.gameObject.tag == "Worm") {
 			MonoBehaviour apple = gameObject.GetComponent<AppleMechanics>();// as MonoBehaviour;
 			WormMechanics worm = coll.gameObject.GetComponent<WormMechanics>();
