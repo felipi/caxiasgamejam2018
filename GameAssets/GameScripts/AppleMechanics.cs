@@ -10,21 +10,19 @@ public class AppleMechanics : MonoBehaviour
     public float baseAngularVelocity;
     public float baseVelocity;
 
-    // Use this for initialization
     void Start()
     {
         _collider = GetComponent<Rigidbody2D>();
         _collider.velocity = new Vector2(0, baseVelocity * -1);
-        _collider.angularVelocity = 360f / baseAngularVelocity;
+        _collider.angularVelocity = 90 * baseAngularVelocity;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (_collider && level)
         {
             _collider.velocity = this.calculateGravity();
-            //_collider.angularVelocity = this.calculateAngularVelocity();
+            _collider.angularVelocity = this.calculateAngularVelocity();
         }
 
         Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
@@ -44,7 +42,8 @@ public class AppleMechanics : MonoBehaviour
                 return _collider.angularVelocity;
             }
 
-            return (360f / baseAngularVelocity) + (level.Value * 20 / 100);
+            var velocity = baseAngularVelocity + (level.Value * 10 / 100);
+            return 90 * velocity;
         }
 
         return _collider.angularVelocity;
