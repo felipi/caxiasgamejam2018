@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
-  baseAngularVelocity: 4
-  baseVelocity: 5
+  baseAngularVelocity: 1
+  baseVelocity: 2
 --- !u!212 &21250208
 SpriteRenderer:
   m_ObjectHideFlags: 1

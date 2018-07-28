@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ade7137339616448ee4aa303f70abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawn: 1.2
+  timeToSpawn: 2.5
 --- !u!1 &880715128
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,12 +663,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 0}
-  baseTorque: 100
-  baseDrag: 5
-  torqueVariance: 5
-  dragVariance: 5
-  randomizeTorque: 0
-  randomizeDrag: 1
+  baseAngularVelocity: 0
+  baseVelocity: 0
 --- !u!50 &1428818187
 Rigidbody2D:
   serializedVersion: 4
