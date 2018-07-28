@@ -5,11 +5,13 @@ using System.Collections;
 public class WormMechanics : MonoBehaviour {
 	public AppleMechanics parentApple;
 	public GameEvent OnClick;
+	public GameEvent Offscreen;
 	public float impulseMagnitude;
 
 	private Rigidbody2D _body;
 	private bool _launched = false;
 	private AppleMechanics _lastParent = null;
+	private bool _isOffscreen = false;
 	// Use this for initialization
 	// Update is called once per frame
 	void Start() {
@@ -24,6 +26,8 @@ public class WormMechanics : MonoBehaviour {
 			 	Debug.Log("CLICK");
 				OnClick.Raise();
 		 }
+
+		 CheckIfOnScreen();
 	}
 
 	public void DetachFromParent(){
@@ -80,5 +84,24 @@ public class WormMechanics : MonoBehaviour {
 		if(appleMechanics == _lastParent) return;
 		parentApple = appleMechanics;
 		AttachToParent(appleMechanics.transform);
+	}
+
+	public void CheckIfOnScreen(){
+		Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+		Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+		if( screenPos.x < -100 ||
+			screenPos.y < -100 ||
+			screenPos.x > Screen.width + 100 ||
+			screenPos.y > Screen.height + 100) {
+				if(!_isOffscreen) {
+					_isOffscreen = true;
+					Offscreen.Raise();
+					Debug.Log("GAME OVER");
+				}
+			}
+	}
+
+	public void Die(){
+		GameObject.Destroy(gameObject);
 	}
 }

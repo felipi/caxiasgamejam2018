@@ -34,4 +34,8 @@ public class SpawnMechanics : MonoBehaviour {
         float _x = System.Convert.ToSingle(System.Math.Round(Random.Range(min: -4f, max: 4f)));
         apple.transform.position = new Vector3(_x, this.transform.position.y, this.transform.position.z);
     } 
+
+    public void Shower(){
+        timeToSpawn = 0.1f;
+    }
 }
