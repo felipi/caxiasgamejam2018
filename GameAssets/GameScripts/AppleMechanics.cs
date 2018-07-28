@@ -11,9 +11,11 @@ public class AppleMechanics : MonoBehaviour {
 	public bool randomizeDrag;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		_collider = GetComponent<Rigidbody2D>();
-		if(_collider){
+		if(_collider)
+        {
 			float torque = baseTorque;
 			float drag = baseDrag;
 			if(randomizeTorque)
@@ -24,9 +26,15 @@ public class AppleMechanics : MonoBehaviour {
 			_collider.AddTorque(torque, ForceMode2D.Force);
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+
+        if ((this.transform.position.y) < (bounds.y * -1))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
