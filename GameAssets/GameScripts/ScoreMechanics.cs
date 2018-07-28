@@ -6,8 +6,6 @@ using UnityEngine;
 public class ScoreMechanics : MonoBehaviour
 {
     public int comboColdown;
-    public GameEvent makeScoreEvent;
-    public GameEvent makePerfectScoreEvent;
     public IntVariable actualScore;
 
     private int _combo;
@@ -25,16 +23,6 @@ public class ScoreMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            this.makeScoreEvent.Raise();
-        }
-
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            this.makePerfectScoreEvent.Raise();
-        }
-
         if (_comboColdown <= 0)
         {
             clearCombo();

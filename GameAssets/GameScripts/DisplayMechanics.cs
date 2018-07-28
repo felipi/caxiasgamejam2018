@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class DisplayMechanics : MonoBehaviour
 {
-
     public Text textElement;
-    public IntVariable actualScore;
+    public IntVariable displayIntValue;
+    public string label;
+    public int padLeft;
 
     // Use this for initialization
     void Start()
@@ -19,9 +20,10 @@ public class DisplayMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (actualScore != null) {
-            var score = actualScore.Value.ToString().PadLeft(5, '0');
-            textElement.text = "Score: " + score;
+        if (displayIntValue != null)
+        {
+            var score = displayIntValue.Value.ToString().PadLeft(padLeft, '0');
+            textElement.text = label + ": " + score;
         }
     }
 }
