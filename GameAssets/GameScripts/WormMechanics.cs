@@ -5,23 +5,52 @@ using System.Collections;
 public class WormMechanics : MonoBehaviour {
 	public AppleMechanics parentApple;
 	public GameEvent OnClick;
+	public float impulseMagnitude;
+
+	private Rigidbody2D _body;
+	private bool _launched = false;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
 	// Update is called once per frame
+	void Start() {
+		_body = gameObject.GetComponent<Rigidbody2D>();
+		if(_body) {
+			_body.isKinematic = true;
+		}
+	}
+
 	void Update () {
 		 if (Input.GetMouseButtonDown(0)) {
 			 	Debug.Log("CLICK");
-				 OnClick.Raise();
+				OnClick.Raise();
 		 }
 	}
 
 	public void DetachFromParent(){
 			gameObject.transform.parent = null;
-			 Rigidbody2D body = gameObject.GetComponent<Rigidbody2D>();
-			body.AddForce(transform.up * 20, ForceMode2D.Impulse);
+			parentApple = null;
+			LaunchWorm();
 	}
 
+	public void AttachToParent(Transform newParent) {
+			gameObject.transform.parent = newParent;
+			if(_body) {
+				_body.isKinematic = true;
+				_launched = false;
+			}
+	}
+
+	public void LaunchWorm(){
+		if(_body && !_launched) {
+			_launched = true;
+			_body.isKinematic = false;
+			_body.AddForce(transform.up * -impulseMagnitude, ForceMode2D.Impulse);
+		}
+	}
+
+	public void CollidedWithApple(MonoBehaviour apple){
+		if(!_launched) return;
+		AppleMechanics appleMechanics = apple as AppleMechanics;
+		parentApple = appleMechanics;
+		AttachToParent(appleMechanics.transform);
+	}
 }
