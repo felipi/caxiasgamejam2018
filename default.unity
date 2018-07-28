@@ -206,6 +206,78 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &150734630
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150734633}
+  - component: {fileID: 150734632}
+  - component: {fileID: 150734631}
+  m_Layer: 0
+  m_Name: Level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &150734631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150734630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5247d494b11c86d4ca8335d764fe7a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: eb591a000a0d8514e954731557f2cef1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 150734632}
+        m_MethodName: onPerformJumpEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &150734632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150734630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d356b305dbd554bbd11626f58af8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
+  performJump: {fileID: 11400000, guid: eb591a000a0d8514e954731557f2cef1, type: 2}
+  jumpToLvlChange: 5
+--- !u!4 &150734633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 150734630}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 93.395134, y: 244.23265, z: -5.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &370908605
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,7 +404,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &651534739
 GameObject:
@@ -421,7 +493,7 @@ RectTransform:
   m_Children:
   - {fileID: 880715129}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -451,7 +523,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 728551499}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalPosition: {x: 0, y: 14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -468,8 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ade7137339616448ee4aa303f70abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawn: 4
-  OnClick: {fileID: 0}
+  timeToSpawn: 1.2
 --- !u!1 &880715128
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532cfa8ef26bb2848ad0f417e0be33d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: {fileID: 0}
   baseTorque: 100
   baseDrag: 5
   torqueVariance: 5
@@ -721,7 +793,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1692619486
 MonoBehaviour:
@@ -735,9 +807,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   comboColdown: 3
-  makeScoreEvent: {fileID: 11400000, guid: 9813e9d9eb94a47418760da733262930, type: 2}
-  makePerfectScoreEvent: {fileID: 11400000, guid: d23e10fa962de82438b93e46beba3236,
-    type: 2}
   actualScore: {fileID: 11400000, guid: 30d67557278c1dc429db64f179ea5e69, type: 2}
 --- !u!114 &1692619487
 MonoBehaviour:

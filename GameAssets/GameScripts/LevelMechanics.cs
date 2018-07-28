@@ -21,7 +21,10 @@ public class LevelMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            onPerformJumpEvent();
+        }
     }
 
     public void onPerformJumpEvent()
