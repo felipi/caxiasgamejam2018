@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 using RoboRyanTron.Unite2017.Variables;
 
 public class AppleMechanics : MonoBehaviour

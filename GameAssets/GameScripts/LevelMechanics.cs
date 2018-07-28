@@ -18,19 +18,12 @@ public class LevelMechanics : MonoBehaviour
         this.computeLevel();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            onPerformJumpEvent();
-        }
-    }
+
+    void Update() { }
 
     public void onPerformJumpEvent()
     {
         this.computeJump();
-        Debug.Log("Level: " + this._actualLevel);
     }
 
     void computeJump()
