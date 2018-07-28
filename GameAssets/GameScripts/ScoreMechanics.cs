@@ -37,8 +37,7 @@ public class ScoreMechanics : MonoBehaviour
 
         if (_comboColdown <= 0)
         {
-            _comboColdown = 0;
-            _combo = 0;
+            clearCombo();
         }
         else
         {
@@ -48,17 +47,29 @@ public class ScoreMechanics : MonoBehaviour
 
     public void MakeScore()
     {
-        _score += 1;
-
-        if (actualScore != null)
-            actualScore.SetValue(_score);
+        clearCombo();
+        saveScore();
     }
 
     public void MakePerfectScore()
     {
         _combo++;
         _comboColdown = this.comboColdown;
-        this.MakeScore();
-        for (int i = 0; i < _combo; i++) this.MakeScore();
+        this.saveScore();
+        for (int i = 0; i < _combo; i++) this.saveScore();
+    }
+
+    private void clearCombo()
+    {
+        _comboColdown = 0;
+        _combo = 0;
+    }
+
+    private void saveScore()
+    {
+        _score += 1;
+
+        if (actualScore != null)
+            actualScore.SetValue(_score);
     }
 }
