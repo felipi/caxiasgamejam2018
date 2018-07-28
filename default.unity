@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ade7137339616448ee4aa303f70abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToSpawn: 4
+  timeToSpawn: 1
   OnClick: {fileID: 0}
 --- !u!1 &1428818185
 GameObject:
@@ -453,6 +453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1692619485}
+  - component: {fileID: 1692619486}
   m_Layer: 0
   m_Name: Score
   m_TagString: Untagged
@@ -473,6 +474,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692619486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1692619484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dae6847e9d3b464ea2a89832e801acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actualScore: {fileID: 11400000, guid: 30d67557278c1dc429db64f179ea5e69, type: 2}
 --- !u!1 &2137642187
 GameObject:
   m_ObjectHideFlags: 0

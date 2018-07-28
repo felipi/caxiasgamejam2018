@@ -25,17 +25,14 @@ public class SpawnMechanics : MonoBehaviour {
             return;
         }
 
-        currentTime = currentTime - Time.deltaTime;
+        currentTime -= Time.deltaTime;
     }
 
     public void Spawn()
     {
-        GameObject apple = 
-            (GameObject)Instantiate(Resources.Load("Apple"));
-        apple.transform.position = new Vector3(            
-            System.Convert.ToSingle(System.Math.Ceiling(Random.Range(-4f, 4f))),
-            this.transform.position.y,
-            this.transform.position.z
-        );
+        GameObject apple = (GameObject)Instantiate(Resources.Load("Apple"));
+        float _x = System.Convert.ToSingle(System.Math.Round(Random.Range(min: -4f, max: 4f)));
+        Debug.Log(_x);
+        apple.transform.position = new Vector3(_x, this.transform.position.y, this.transform.position.z);
     } 
 }
