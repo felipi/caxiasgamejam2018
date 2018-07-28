@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class SpawnMechanics : MonoBehaviour
 {
+    public FloatVariable coldownSpawn;
 
     public IntVariable level;
-
-    public float timeToSpawn;
 
     private float currentTime;
 
@@ -21,14 +20,17 @@ public class SpawnMechanics : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        if (currentTime <= 0)
+        if (coldownSpawn.Value > 0)
         {
-            this.Spawn();
-            this.currentTime = timeToSpawn;
-            return;
-        }
+            if (currentTime <= 0)
+            {
+                this.Spawn();
+                this.currentTime = coldownSpawn.Value;
+                return;
+            }
 
-        currentTime -= Time.deltaTime;
+            currentTime -= Time.deltaTime;
+        }
     }
 
     public void Spawn()
@@ -37,7 +39,7 @@ public class SpawnMechanics : MonoBehaviour
         float _x = System.Convert.ToSingle(System.Math.Round(Random.Range(min: -4f, max: 4f)));
 
         var renderer = apple.GetComponent<SpriteRenderer>();
-         
+
         if (Random.Range(1, 100) <= calculate())
         {
             renderer.color = Color.yellow;

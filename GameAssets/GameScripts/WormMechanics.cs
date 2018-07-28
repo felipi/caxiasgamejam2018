@@ -7,6 +7,7 @@ public class WormMechanics : MonoBehaviour
     public AppleMechanics parentApple;
     public GameEvent OnClick;
     public GameEvent MakeScore;
+    
     public GameEvent OnJump;
     public GameEvent OnPerfectJump;
     public float impulseMagnitude;
@@ -14,6 +15,8 @@ public class WormMechanics : MonoBehaviour
     private Rigidbody2D _body;
     private bool _launched = false;
     private AppleMechanics _lastParent = null;
+
+
 
     void Start()
     {
@@ -26,13 +29,12 @@ public class WormMechanics : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            Debug.Log("CLICK");
             OnClick.Raise();
         }
     }
-
+    
     public void DetachFromParent()
     {
         _lastParent = parentApple;
@@ -56,7 +58,7 @@ public class WormMechanics : MonoBehaviour
             _launched = false;
         }
     }
-    
+
     public void LaunchWorm()
     {
         if (_body && !_launched)
