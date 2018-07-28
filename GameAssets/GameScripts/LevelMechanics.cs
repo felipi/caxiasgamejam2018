@@ -21,10 +21,7 @@ public class LevelMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            performJump.Raise();
-        }
+
     }
 
     public void onPerformJumpEvent()
@@ -43,6 +40,6 @@ public class LevelMechanics : MonoBehaviour
     {
         _actualLevel++;
         _jumps = 0;
-        if(this.level != null) this.level.SetValue(_actualLevel);
+        if (this.level != null) this.level.SetValue(_actualLevel);
     }
 }

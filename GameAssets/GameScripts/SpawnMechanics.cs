@@ -5,8 +5,6 @@ using UnityEngine;
 public class SpawnMechanics : MonoBehaviour {
 
     public float timeToSpawn;
-    
-    public GameEvent OnClick;
 
     private float currentTime;
 
