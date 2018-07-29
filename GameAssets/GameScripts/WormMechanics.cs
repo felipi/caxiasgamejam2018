@@ -102,11 +102,11 @@ public class WormMechanics : MonoBehaviour
 
         if (appleMechanics.isGolden)
         {
-            this.FillBooster.Raise();
+            this.FillSuperBooster.Raise();
         }
         else
         {
-            this.FillSuperBooster.Raise();
+            this.FillBooster.Raise();
         }
 
         AttachToParent(appleMechanics.transform);

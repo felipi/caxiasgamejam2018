@@ -55,6 +55,8 @@ public class BoosterMechanics : MonoBehaviour
             elapsedBoostTime = 0f;
             Deactive();
         }
+
+        this.transform.localScale = new Vector3(this.transform.localScale.x, 10 * boost.Value);
     }
 
     private void consumeBoost()
@@ -67,7 +69,7 @@ public class BoosterMechanics : MonoBehaviour
     public void Active()
     {
         if (_isActive) return;
-        if(ActivateBoosterEvent) ActivateBoosterEvent.Raise();
+        if (ActivateBoosterEvent) ActivateBoosterEvent.Raise();
 
         this.oldRotationVelocity = rotationVelocity.Value;
         this.oldVerticalVelocity = verticalVelocity.Value;
@@ -83,7 +85,7 @@ public class BoosterMechanics : MonoBehaviour
     public void Deactive()
     {
         if (!_isActive) return;
-        if(DeactivateBoosterEvent) DeactivateBoosterEvent.Raise();
+        if (DeactivateBoosterEvent) DeactivateBoosterEvent.Raise();
 
         rotationVelocity.SetValue(this.oldRotationVelocity);
         verticalVelocity.SetValue(this.oldVerticalVelocity);
@@ -95,10 +97,14 @@ public class BoosterMechanics : MonoBehaviour
     public void FillBoost()
     {
         boost.ApplyChange(.1f);
+
+        if (boost.Value > 1) boost.SetValue(1f);
     }
 
     public void FillSuperBooster()
     {
         boost.ApplyChange(.3f);
+
+        if (boost.Value > 1) boost.SetValue(1f);
     }
 }
