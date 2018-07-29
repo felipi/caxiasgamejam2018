@@ -10,7 +10,7 @@ public class ScoreMechanics : MonoBehaviour
     public int comboColdown;
     public IntVariable actualScore;
     public IntVariable highScore;
-
+    
     private int _combo;
     private float _comboColdown;
     private int _score;
