@@ -41,7 +41,7 @@ public class BGMController : MonoBehaviour {
 		if (change) {
 			change = false;
 
-			BGMChange ();
+			RandomBGM ();
 		}
 
 		if (decreasingPitch && bgm_1.pitch > 0.2f) {	
@@ -60,15 +60,18 @@ public class BGMController : MonoBehaviour {
 		}
 	}
 	public void RandomBGM() {
+		int iIndex = Random.Range (0, songs.Length);
+		current = songs[iIndex];//sBGMS [iIndex];
 		BGMChange();
+	}
+
+	public void PlaySongAtIndex(int iIndex) {
+		current = songs[iIndex];
+		BGMChange();	
 	}
 	void BGMChange () {
 		string newbgm = bgmname;
 		AudioClip newClip = current;
-		while (newClip == current && current != gameOverSong) {
-			int iIndex = Random.Range (0, songs.Length);
-			newClip = songs[iIndex];//sBGMS [iIndex];
-		}
 
 		if (bgmnow == 1) {
 			bgm_2.volume = 0f;

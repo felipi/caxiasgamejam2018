@@ -15,6 +15,11 @@ public class ScoreMechanics : MonoBehaviour
     private float _comboColdown;
     private int _score;
 
+    public GameEvent enterFrenzy;
+    public GameEvent endFrenzy;
+    public IntVariable frenzyThreshold;
+    private bool frenzyMode = false;
+
     // Use this for initialization
     void Start()
     {
@@ -43,13 +48,20 @@ public class ScoreMechanics : MonoBehaviour
 
     public void MakeScore()
     {
-        clearCombo();
+        Debug.Log("MAKE NORMAL SCORE");
+        //clearCombo();
         saveScore();
     }
 
     public void MakePerfectScore()
     {
+        Debug.Log("MAKE PERFECT SCORE");
         _combo++;
+        if(_combo >= frenzyThreshold.Value && !frenzyMode) {
+            if(enterFrenzy)
+                enterFrenzy.Raise();
+            frenzyMode = true;
+        }
         _comboColdown = this.comboColdown;
         this.saveScore();
         for (int i = 0; i < _combo; i++) this.saveScore();
@@ -59,6 +71,13 @@ public class ScoreMechanics : MonoBehaviour
     {
         _comboColdown = 0;
         _combo = 0;
+        
+        if(frenzyMode) {
+            frenzyMode = false;
+            if(endFrenzy) {
+                    endFrenzy.Raise();
+             }
+        }
     }
 
     private void saveScore()

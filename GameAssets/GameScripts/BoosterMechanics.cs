@@ -8,6 +8,8 @@ public class BoosterMechanics : MonoBehaviour
 {
     public FloatVariable ROTATION_VELOCITY;
     public FloatVariable VERTICAL_VELOCITY;
+    public FloatVariable boostFillRate;
+    public FloatVariable superBoostFillRate;
     public const float COLDOWN_SPAWN = 1.5f;
     public const float BOOST = 1f;
 
@@ -96,14 +98,14 @@ public class BoosterMechanics : MonoBehaviour
 
     public void FillBoost()
     {
-        boost.ApplyChange(.1f);
+        boost.ApplyChange(boostFillRate);
 
         if (boost.Value > 1) boost.SetValue(1f);
     }
 
     public void FillSuperBooster()
     {
-        boost.ApplyChange(.3f);
+        boost.ApplyChange(superBoostFillRate);
 
         if (boost.Value > 1) boost.SetValue(1f);
     }
