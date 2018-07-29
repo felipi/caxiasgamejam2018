@@ -89,7 +89,15 @@ public class WormMechanics : MonoBehaviour
         if (appleMechanics == _lastParent) return;
         parentApple = appleMechanics;
 
-        this.OnJump.Raise();
+        float dot = Vector3.Dot(transform.up, (parentApple.transform.position - transform.position).normalized);
+        Debug.Log("DOT: " + dot);
+        if(dot > 0.98f) { 
+            this.OnPerfectJump.Raise();
+        } else {
+            this.OnJump.Raise();
+            
+        }
+
         this.MakeScore.Raise();
 
         if (appleMechanics.isGolden)

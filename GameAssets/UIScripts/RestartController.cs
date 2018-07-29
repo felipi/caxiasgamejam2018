@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class RestartController : MonoBehaviour
 {
+
+    public Button playButton;
     void Start()
     {
         gameObject.SetActive(false);
-        GetComponent<Button>().onClick.AddListener(OnButtonClick);
-        var x = gameObject.GetComponent<Button>();
+        if(playButton) 
+            playButton.onClick.AddListener(OnButtonClick);
+        //var x = gameObject.GetComponent<Button>();
     }
 
     public void EnableButton()
     {
-        
         gameObject.SetActive(true);
     }
 
