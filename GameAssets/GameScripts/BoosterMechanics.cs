@@ -55,6 +55,8 @@ public class BoosterMechanics : MonoBehaviour
             elapsedBoostTime = 0f;
             Deactive();
         }
+
+        this.transform.localScale = new Vector3(this.transform.localScale.x, 10 * boost.Value);
     }
 
     private void consumeBoost()

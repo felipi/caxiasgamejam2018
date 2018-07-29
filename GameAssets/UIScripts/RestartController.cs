@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class RestartController : MonoBehaviour {
+public class RestartController : MonoBehaviour
+{
+    void Start()
+    {
+        gameObject.SetActive(false);
+        GetComponent<Button>().onClick.AddListener(OnButtonClick);
+        var x = gameObject.GetComponent<Button>();
+    }
 
-	void Start() {
-		gameObject.SetActive(false);
+    public void EnableButton()
+    {
+        
+        gameObject.SetActive(true);
+    }
 
-		GetComponent<Button>().onClick.AddListener(OnButtonClick);
-	}
-
-	public void EnableButton(){
-		gameObject.SetActive(true);
-	}
-
-	void OnButtonClick(){ 
-		 Application.LoadLevel(Application.loadedLevel);
-	}
+    void OnButtonClick()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+    }
 }
