@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class BoosterMechanics : MonoBehaviour
 {
-    public const float ROTATION_VELOCITY = 1;
-    public const float VERTICAL_VELOCITY = 4;
+    public FloatVariable ROTATION_VELOCITY;
+    public FloatVariable VERTICAL_VELOCITY;
     public const float COLDOWN_SPAWN = 1.5f;
     public const float BOOST = 1f;
+
+    public GameEvent ActivateBoosterEvent;
+    public GameEvent DeactivateBoosterEvent;
 
     public FloatVariable boost;
     public FloatVariable rotationVelocity;
@@ -22,6 +25,8 @@ public class BoosterMechanics : MonoBehaviour
 
     private bool _isActive = false;
     private bool _boostering;
+
+    private float elapsedBoostTime = 0f;
 
     // Use this for initialization
     void Start()
@@ -47,6 +52,7 @@ public class BoosterMechanics : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) || boost.Value <= 0)
         {
+            elapsedBoostTime = 0f;
             Deactive();
         }
     }
@@ -61,6 +67,7 @@ public class BoosterMechanics : MonoBehaviour
     public void Active()
     {
         if (_isActive) return;
+        if(ActivateBoosterEvent) ActivateBoosterEvent.Raise();
 
         this.oldRotationVelocity = rotationVelocity.Value;
         this.oldVerticalVelocity = verticalVelocity.Value;
@@ -76,6 +83,7 @@ public class BoosterMechanics : MonoBehaviour
     public void Deactive()
     {
         if (!_isActive) return;
+        if(DeactivateBoosterEvent) DeactivateBoosterEvent.Raise();
 
         rotationVelocity.SetValue(this.oldRotationVelocity);
         verticalVelocity.SetValue(this.oldVerticalVelocity);

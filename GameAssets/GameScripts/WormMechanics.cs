@@ -80,6 +80,7 @@ public class WormMechanics : MonoBehaviour {
 		AppleMechanics appleMechanics = apple as AppleMechanics;
 		if(appleMechanics == _lastParent) return;
 		parentApple = appleMechanics;
+
 		this.OnJump.Raise();
         this.MakeScore.Raise();
 		AttachToParent(appleMechanics.transform);

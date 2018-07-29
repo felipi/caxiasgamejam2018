@@ -1128,12 +1128,12 @@ Prefab:
         type: 2}
       propertyPath: songs.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: dd9745e96fa929e49ad42a5b54caee5f, type: 3}
+      objectReference: {fileID: 8300000, guid: b47392a76cb97e149a1d6351f5d1fda3, type: 3}
     - target: {fileID: 114550541893737014, guid: c56f1040f5f3f0b458f19eedcb08e7f7,
         type: 2}
       propertyPath: songs.Array.data[1]
       value: 
-      objectReference: {fileID: 8300000, guid: b47392a76cb97e149a1d6351f5d1fda3, type: 3}
+      objectReference: {fileID: 8300000, guid: dd9745e96fa929e49ad42a5b54caee5f, type: 3}
     - target: {fileID: 114550541893737014, guid: c56f1040f5f3f0b458f19eedcb08e7f7,
         type: 2}
       propertyPath: transitionTime
@@ -1179,18 +1179,7 @@ MonoBehaviour:
   Event: {fileID: 11400000, guid: 573dfe2a0796242499a8df62ede2f7c4, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1923231839}
-        m_MethodName: Deactive
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1923231838
@@ -1207,18 +1196,7 @@ MonoBehaviour:
   Event: {fileID: 11400000, guid: 0ad57e5044a2aad448ccb44cd663625d, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1923231839}
-        m_MethodName: Active
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1923231839
@@ -1232,6 +1210,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a209236c39a9adc43804687d6ecd0ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ROTATION_VELOCITY: {fileID: 11400000, guid: 838e3e997dcce054f9b4a520e28cb27c, type: 2}
+  VERTICAL_VELOCITY: {fileID: 11400000, guid: da5fc5d57847033468c4779fe1e5ce8f, type: 2}
+  ActivateBoosterEvent: {fileID: 11400000, guid: 0ad57e5044a2aad448ccb44cd663625d,
+    type: 2}
+  DeactivateBoosterEvent: {fileID: 11400000, guid: 573dfe2a0796242499a8df62ede2f7c4,
+    type: 2}
   boost: {fileID: 11400000, guid: ff59d395548df234195e02936cb55d5e, type: 2}
   rotationVelocity: {fileID: 11400000, guid: 93cb88677f97e8a49898d495196af6f9, type: 2}
   verticalVelocity: {fileID: 11400000, guid: c3c38b02a5a94604896e80866f78ebf0, type: 2}

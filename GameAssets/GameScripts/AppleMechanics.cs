@@ -48,13 +48,14 @@ public class AppleMechanics : MonoBehaviour
                 return _body.angularVelocity;
             }
 
-            var velocity = baseAngularVelocity + (level.Value * 10 / 100);
-            if(invertRotationAngle) velocity *= -1;
+            float nvelocity = baseAngularVelocity + (level.Value * 10 / 100);
+            if(invertRotationAngle) nvelocity *= -1;
 
-            return 90 * velocity;
+            return 90 * nvelocity;
         }
-
-        return 90 * rotationVelocity.Value;
+        float ovelocity =  rotationVelocity.Value;
+        if(invertRotationAngle) ovelocity *= -1;
+        return 90 * ovelocity;
     }
 
     private Vector2 calculateGravity()

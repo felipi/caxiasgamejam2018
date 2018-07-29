@@ -20,6 +20,7 @@ public class BGMController : MonoBehaviour {
 	private AudioSource bgm_2;
 
 	private Coroutine bgmRoutine;
+	private bool decreasingPitch = false;
 
 	// Use this for initialization
 	void Start () {
@@ -41,6 +42,14 @@ public class BGMController : MonoBehaviour {
 			change = false;
 
 			BGMChange ();
+		}
+
+		if (decreasingPitch && bgm_1.pitch > 0.2f) {	
+				bgm_2.pitch -= transitionTime;
+				bgm_1.pitch -= transitionTime;
+		} else if(!decreasingPitch && bgm_1.pitch < 1f){
+				bgm_2.pitch += transitionTime;
+				bgm_1.pitch += transitionTime;
 		}
 	}
 
@@ -78,6 +87,38 @@ public class BGMController : MonoBehaviour {
 			bgmRoutine = StartCoroutine(BGMTransition(transitionTime,bgmnow));
 			bgmnow = 1;
 		}		
+	}
+
+	public void ReducePitch(){
+		Debug.Log("PITCH REDUCE");
+		//StartCoroutine(PitchTransition(transitionTime, 0));
+		decreasingPitch = true;
+	}
+	public void IncreasePitch(){
+		//StartCoroutine(PitchTransition(transitionTime, 1));
+		decreasingPitch = false;
+	}
+
+	IEnumerator PitchTransition(float time, int bgmaux) {
+		//float elapsedTime = 0;
+		if (bgmaux == 1) {
+			while (bgm_1.pitch < 1f) {
+				
+					bgm_2.pitch += 0.01f;
+					bgm_1.pitch += 0.01f;
+				
+				yield return new WaitForSeconds (time);
+			}
+		} else {
+			while (bgm_1.pitch > 0.2f) {
+				//if(elapsedTime > 0.5f) {
+					bgm_1.pitch -= 0.01f;
+					bgm_2.pitch -= 0.01f;
+				//}
+				//elapsedTime += time;
+				yield return new WaitForSeconds (time);
+			}
+		}
 	}
 
 	IEnumerator BGMTransition(float time, int bgmaux)
