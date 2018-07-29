@@ -91,4 +91,11 @@ public class BoosterMechanics : MonoBehaviour
 
         _isActive = false;
     }
+
+    public void FillBoost()
+    {
+        // TODO: Add logic to check if that is a Golden Apple
+
+        boost.ApplyChange(.1f);
+    }
 }
