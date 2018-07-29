@@ -66,17 +66,17 @@ public class AppleMechanics : MonoBehaviour
 
     private Vector2 calculateGravity()
     {
-        var x = 0;
+        float x = 0;
 
         if (_body.position.y < -4)
         {
             if (_body.position.x > 0)
             {
-                x = -4;
+                x = -(_body.position.x * 2);
             }
             if (_body.position.x < 0)
             {
-                x = 4;
+                x = -(_body.position.x*2);
             }
         }
         
