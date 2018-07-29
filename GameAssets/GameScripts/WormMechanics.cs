@@ -5,6 +5,7 @@ using System.Collections;
 public class WormMechanics : MonoBehaviour {
 	public AppleMechanics parentApple;
 	public GameEvent OnClick;
+	public GameEvent OnHold;
 	public GameEvent Offscreen;
 	public GameEvent MakeScore;
     public GameEvent OnJump;
@@ -27,8 +28,13 @@ public class WormMechanics : MonoBehaviour {
 	void Update () {
 		 if (Input.GetMouseButtonDown(0)) {
 			 	Debug.Log("CLICK");
+				OnHold.Raise();
+		 }
+		 if (Input.GetMouseButtonUp(0)) {
+			 	Debug.Log("CLICK");
 				OnClick.Raise();
 		 }
+
 
 		 CheckIfOnScreen();
 	}

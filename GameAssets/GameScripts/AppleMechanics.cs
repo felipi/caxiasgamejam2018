@@ -14,6 +14,7 @@ public class AppleMechanics : MonoBehaviour
         _collider = GetComponent<Rigidbody2D>();
         _collider.velocity = new Vector2(0, baseVelocity * -1);
         _collider.angularVelocity = 90 * baseAngularVelocity;
+		if(Random.value < 0.5f) _collider.angularVelocity *= -1;
     }
 
     void Update()

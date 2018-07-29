@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using RoboRyanTron.Unite2017.Variables;
 
 [RequireComponent(typeof(LineRenderer))]
 public class WormGhost : MonoBehaviour {
 	public LayerMask layerMask = -1;
+	public IntVariable level;
 	public float maxDistance = Mathf.Infinity;
 	private LineRenderer _line;
 
@@ -14,6 +16,7 @@ public class WormGhost : MonoBehaviour {
 		_line.enabled = false;
 	}
 	void FixedUpdate() {
+		if(level && level.Value >= 3) return;
 		WormMechanics worm = gameObject.GetComponent<WormMechanics>();
 		RaycastHit2D hit = Physics2D.Raycast(transform.position, gameObject.transform.up, maxDistance, LayerMask.GetMask("Apples"));	
 		if(hit.collider && worm.parentApple) {

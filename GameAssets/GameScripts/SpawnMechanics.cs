@@ -11,6 +11,8 @@ public class SpawnMechanics : MonoBehaviour
     public float timeToSpawn;
 
     private float currentTime;
+    public Sprite commonApple;
+    public Sprite superApple;
 
     // Use this for initialization
     public void Start()
@@ -40,11 +42,13 @@ public class SpawnMechanics : MonoBehaviour
          
         if (Random.Range(1, 100) <= calculate())
         {
-            renderer.color = Color.yellow;
+            //renderer.color = Color.yellow;
+            renderer.sprite = superApple;
         }
         else
         {
-            renderer.color = Color.red;
+            //renderer.color = Color.red;]
+            renderer.sprite = commonApple;
         }
 
         apple.transform.position = new Vector3(_x, this.transform.position.y, this.transform.position.z);
