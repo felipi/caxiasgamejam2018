@@ -1734,6 +1734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060d4203a2f5bfa45823e6cf60f3bd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 0}
 --- !u!114 &1397583878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2097,7 +2098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1583179889
 Transform:
   m_ObjectHideFlags: 0
@@ -2233,6 +2234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060d4203a2f5bfa45823e6cf60f3bd03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playButton: {fileID: 0}
 --- !u!114 &1662741109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3099,8 +3101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a209236c39a9adc43804687d6ecd0ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ROTATION_VELOCITY: {fileID: 0}
-  VERTICAL_VELOCITY: {fileID: 0}
+  ROTATION_VELOCITY: {fileID: 11400000, guid: 838e3e997dcce054f9b4a520e28cb27c, type: 2}
+  VERTICAL_VELOCITY: {fileID: 11400000, guid: da5fc5d57847033468c4779fe1e5ce8f, type: 2}
   ActivateBoosterEvent: {fileID: 0}
   DeactivateBoosterEvent: {fileID: 0}
   boost: {fileID: 11400000, guid: ff59d395548df234195e02936cb55d5e, type: 2}
@@ -3276,7 +3278,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2001216236}
-  - component: {fileID: 2001216237}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -3303,19 +3304,6 @@ RectTransform:
   m_AnchoredPosition: {x: -2.6, y: -148.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2001216237
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2001216235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad654db3c6de06e47b243be9c2e04c6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_YourFirstButton: {fileID: 0}
-  m_YourSecondButton: {fileID: 0}
 --- !u!1 &2047028811
 GameObject:
   m_ObjectHideFlags: 0

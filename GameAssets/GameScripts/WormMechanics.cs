@@ -90,7 +90,7 @@ public class WormMechanics : MonoBehaviour
         parentApple = appleMechanics;
 
         float dot = Vector3.Dot(transform.up, (parentApple.transform.position - transform.position).normalized);
-        Debug.Log("DOT: " + dot);
+
         if(dot > 0.98f) { 
             this.OnPerfectJump.Raise();
         } else {

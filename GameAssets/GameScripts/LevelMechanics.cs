@@ -40,7 +40,9 @@ public class LevelMechanics : MonoBehaviour
         {
             this.level.SetValue(_actualLevel);
 
-            if ((this.level.Value % 3) == 0)
+            Debug.Log(this.level.Value);
+            
+            if ((this.level.Value % 1) == 0)
             {
                 this.MakeDay.Raise();
             }
