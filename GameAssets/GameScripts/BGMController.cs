@@ -7,7 +7,12 @@ public class BGMController : MonoBehaviour {
 	public bool change = false;
 	private int bgmnow = 1;
 	private string bgmname = "";
+	private AudioClip current;
 	private string[] sBGMS = { "bgm_1", "bgm_2", "bgm_3", "bgm_4" };
+
+	public AudioClip[] songs;
+	public AudioClip gameOverSong;
+	public float transitionTime = 0.1f;
 
 	private AudioSource[] aSources;
 
@@ -24,7 +29,8 @@ public class BGMController : MonoBehaviour {
 		bgm_2 = aSources[1];
 
 		bgmname = sBGMS [0];
-		bgm_1.clip = (AudioClip)Resources.Load (string.Concat ("BGM/", bgmname));
+		bgm_1.clip = songs[0];// (AudioClip)Resources.Load (string.Concat ("BGM/", bgmname));
+		current = songs[0];
 		bgm_1.Play(0);
 		
 	}
@@ -38,28 +44,38 @@ public class BGMController : MonoBehaviour {
 		}
 	}
 
+	public void PlayGameOverSong() {
+		if(gameOverSong) {
+			current = gameOverSong;
+			BGMChange();
+		}
+	}
+	public void RandomBGM() {
+		BGMChange();
+	}
 	void BGMChange () {
 		string newbgm = bgmname;
-		while (newbgm == bgmname) {
-			int iIndex = Random.Range (0, sBGMS.Length);
-			newbgm = sBGMS [iIndex];
+		AudioClip newClip = current;
+		while (newClip == current && current != gameOverSong) {
+			int iIndex = Random.Range (0, songs.Length);
+			newClip = songs[iIndex];//sBGMS [iIndex];
 		}
 
 		if (bgmnow == 1) {
 			bgm_2.volume = 0f;
-			bgm_2.clip = (AudioClip)Resources.Load (string.Concat ("BGM/", newbgm));
+			bgm_2.clip = newClip;//(AudioClip)Resources.Load (string.Concat ("BGM/", newbgm));
 			bgm_2.loop = true;
 			bgm_2.time = bgm_1.time;
 			bgm_2.Play(0);
-			bgmRoutine = StartCoroutine(BGMTransition(0.1f,bgmnow));
+			bgmRoutine = StartCoroutine(BGMTransition(transitionTime,bgmnow));
 			bgmnow = 2;
 		} else {
 			bgm_1.volume = 0f;
-			bgm_1.clip = (AudioClip)Resources.Load (string.Concat ("BGM/", newbgm));
+			bgm_1.clip = newClip; //(AudioClip)Resources.Load (string.Concat ("BGM/", newbgm));
 			bgm_1.loop = true;
 			bgm_1.time = bgm_2.time;
 			bgm_1.Play(0);
-			bgmRoutine = StartCoroutine(BGMTransition(0.1f,bgmnow));
+			bgmRoutine = StartCoroutine(BGMTransition(transitionTime,bgmnow));
 			bgmnow = 1;
 		}		
 	}

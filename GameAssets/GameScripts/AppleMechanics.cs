@@ -8,13 +8,15 @@ public class AppleMechanics : MonoBehaviour
 
     public float baseAngularVelocity;
     public float baseVelocity;
+    private bool invertRotationAngle;
 
     void Start()
     {
         _collider = GetComponent<Rigidbody2D>();
         _collider.velocity = new Vector2(0, baseVelocity * -1);
         _collider.angularVelocity = 90 * baseAngularVelocity;
-		if(Random.value < 0.5f) _collider.angularVelocity *= -1;
+		invertRotationAngle = (Random.value < 0.5f);
+        if(invertRotationAngle) _collider.angularVelocity *= -1;
     }
 
     void Update()
@@ -43,6 +45,7 @@ public class AppleMechanics : MonoBehaviour
             }
 
             var velocity = baseAngularVelocity + (level.Value * 10 / 100);
+            if(invertRotationAngle) velocity *= -1;
             return 90 * velocity;
         }
 
