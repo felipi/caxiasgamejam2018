@@ -9,6 +9,7 @@ public class WormMechanics : MonoBehaviour
     public GameEvent OnHold;
     public GameEvent Offscreen;
     public GameEvent FillBooster;
+    public GameEvent FillSuperBooster;
     public GameEvent MakeScore;
 
     public GameEvent OnJump;
@@ -90,7 +91,15 @@ public class WormMechanics : MonoBehaviour
 
         this.OnJump.Raise();
         this.MakeScore.Raise();
-        this.FillBooster.Raise();
+
+        if (appleMechanics.isGolden)
+        {
+            this.FillBooster.Raise();
+        }
+        else
+        {
+            this.FillSuperBooster.Raise();
+        }
 
         AttachToParent(appleMechanics.transform);
     }

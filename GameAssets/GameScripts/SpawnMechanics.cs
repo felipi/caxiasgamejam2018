@@ -6,12 +6,9 @@ using UnityEngine;
 public class SpawnMechanics : MonoBehaviour
 {
     public FloatVariable coldownSpawn;
-
     public IntVariable level;
-
     private float currentTime;
-    public Sprite commonApple;
-    public Sprite superApple;
+
 
     private float cooldownModifier = 1.0f;
 
@@ -40,25 +37,15 @@ public class SpawnMechanics : MonoBehaviour
     public void Spawn()
     {
         GameObject apple = (GameObject)Instantiate(Resources.Load("Apple"));
+
         float _x = System.Convert.ToSingle(System.Math.Round(Random.Range(min: -4f, max: 4f)));
 
-        var renderer = apple.GetComponent<SpriteRenderer>();
-
-        if (Random.Range(1, 100) <= calculate())
-        {
-            //renderer.color = Color.yellow;
-            renderer.sprite = superApple;
-        }
-        else
-        {
-            //renderer.color = Color.red;]
-            renderer.sprite = commonApple;
-        }
-
+        apple.GetComponent<AppleMechanics>().isGolden = Random.Range(1, 100) <= calculate();
         apple.transform.position = new Vector3(_x, this.transform.position.y, this.transform.position.z);
-    } 
+    }
 
-    public void Shower(){
+    public void Shower()
+    {
         cooldownModifier = 0.1f;
     }
 
