@@ -35,9 +35,6 @@ public class BoosterMechanics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        Debug.Log(this.boost.Value);
-
         if (Input.GetMouseButtonDown(0) && boost.Value > 0)
         {
             Active();
