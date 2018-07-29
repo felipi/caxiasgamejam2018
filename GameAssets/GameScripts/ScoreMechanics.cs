@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class ScoreMechanics : MonoBehaviour
 {
+    const string HIGH_SCORE_KEY = "highscore";
+
     public int comboColdown;
     public IntVariable actualScore;
+    public IntVariable highScore;
 
     private int _combo;
     private float _comboColdown;
@@ -18,6 +21,11 @@ public class ScoreMechanics : MonoBehaviour
         _score = 0;
         _combo = 0;
         if (actualScore != null) actualScore.SetValue(0);
+
+        if (highScore)
+        {
+            highScore.SetValue(PlayerPrefs.GetInt(HIGH_SCORE_KEY));
+        }
     }
 
     // Update is called once per frame
@@ -59,5 +67,11 @@ public class ScoreMechanics : MonoBehaviour
 
         if (actualScore != null)
             actualScore.SetValue(_score);
+
+        if (highScore && _score > highScore.Value)
+        {
+            highScore.SetValue(_score);
+            PlayerPrefs.SetInt(HIGH_SCORE_KEY, _score);
+        }
     }
 }

@@ -115,6 +115,7 @@ public class WormMechanics : MonoBehaviour
 
     public void Die()
     {
+        PlayerPrefs.Save();
         GameObject.Destroy(gameObject);
     }
 
