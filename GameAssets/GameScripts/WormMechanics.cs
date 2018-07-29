@@ -90,7 +90,7 @@ public class WormMechanics : MonoBehaviour
         parentApple = appleMechanics;
 
         float dot = Vector3.Dot(transform.up, (parentApple.transform.position - transform.position).normalized);
-        Debug.Log("DOT: " + dot);
+
         if(dot > 0.98f) { 
             this.OnPerfectJump.Raise();
         } else {
@@ -124,7 +124,8 @@ public class WormMechanics : MonoBehaviour
             if (!_isOffscreen)
             {
                 _isOffscreen = true;
-                Offscreen.Raise();
+                //Offscreen.Raise();
+                Die();
                 Debug.Log("GAME OVER");
             }
         }
@@ -135,5 +136,11 @@ public class WormMechanics : MonoBehaviour
         PlayerPrefs.Save();
         GameObject.Destroy(gameObject);
     }
+
+     void OnDestroy() {
+        Offscreen.Raise();
+        PlayerPrefs.Save();
+        GameObject.Destroy(gameObject);
+     }
 
 }

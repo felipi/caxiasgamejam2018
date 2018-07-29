@@ -10,7 +10,11 @@ public class DisplayMechanics : MonoBehaviour
     public IntVariable displayIntValue;
     public FloatVariable displayFloatValue;
     public string label;
+    public string labelHighScore;
     public int padLeft;
+
+    public IntVariable actualScore;
+    public IntVariable highScore;
 
     // Use this for initialization
     void Start()
@@ -31,6 +35,15 @@ public class DisplayMechanics : MonoBehaviour
         {
             var score = displayFloatValue.Value.ToString().PadLeft(padLeft, '0');
             textElement.text = label + " " + score;
+        }
+
+        if (actualScore && highScore)
+        {
+            if (actualScore.Value >= highScore.Value)
+            {
+                var score = displayFloatValue.Value.ToString().PadLeft(padLeft, '0');
+                textElement.text = labelHighScore + " " + score;
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ public class RestartController : MonoBehaviour
     }
 
     public void EnableButton()
-    {
+    {   
         gameObject.SetActive(true);
     }
 
