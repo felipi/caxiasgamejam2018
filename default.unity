@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textElement: {fileID: 349723718}
   displayIntValue: {fileID: 11400000, guid: 30d67557278c1dc429db64f179ea5e69, type: 2}
+  displayFloatValue: {fileID: 0}
   label: Score
   padLeft: 4
 --- !u!114 &349723718
@@ -645,8 +646,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ade7137339616448ee4aa303f70abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 0}
-  timeToSpawn: 2
+  coldownSpawn: {fileID: 11400000, guid: e45e15e1a953cae449d0e5453e267699, type: 2}
+  level: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
   commonApple: {fileID: 21300000, guid: 549ade090f2002648a438e4947dd79db, type: 3}
   superApple: {fileID: 21300000, guid: 89643ec8f8189a0468be09afe67ef80a, type: 3}
 --- !u!114 &728551502
@@ -995,6 +996,108 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c56f1040f5f3f0b458f19eedcb08e7f7, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1923231836
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1923231840}
+  - component: {fileID: 1923231839}
+  - component: {fileID: 1923231838}
+  - component: {fileID: 1923231837}
+  m_Layer: 0
+  m_Name: Booster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1923231837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923231836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5247d494b11c86d4ca8335d764fe7a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 573dfe2a0796242499a8df62ede2f7c4, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1923231839}
+        m_MethodName: Deactive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1923231838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923231836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5247d494b11c86d4ca8335d764fe7a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0ad57e5044a2aad448ccb44cd663625d, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1923231839}
+        m_MethodName: Active
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1923231839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923231836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a209236c39a9adc43804687d6ecd0ea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boost: {fileID: 11400000, guid: ff59d395548df234195e02936cb55d5e, type: 2}
+  rotationVelocity: {fileID: 11400000, guid: 93cb88677f97e8a49898d495196af6f9, type: 2}
+  verticalVelocity: {fileID: 11400000, guid: c3c38b02a5a94604896e80866f78ebf0, type: 2}
+  coldownSpawn: {fileID: 11400000, guid: e45e15e1a953cae449d0e5453e267699, type: 2}
+--- !u!4 &1923231840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1923231836}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 11, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1966547344
 Prefab:
   m_ObjectHideFlags: 0
@@ -1037,10 +1140,6 @@ Prefab:
     - target: {fileID: 4207500818528472, guid: 924f57b379ea59e4b9303ad93ff3e0d6, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 184356, guid: 924f57b379ea59e4b9303ad93ff3e0d6, type: 2}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 924f57b379ea59e4b9303ad93ff3e0d6, type: 2}
@@ -1094,6 +1193,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textElement: {fileID: 1996242853}
   displayIntValue: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
+  displayFloatValue: {fileID: 0}
   label: Level
   padLeft: 2
 --- !u!114 &1996242853

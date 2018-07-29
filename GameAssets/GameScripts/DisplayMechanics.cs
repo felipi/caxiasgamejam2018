@@ -8,6 +8,7 @@ public class DisplayMechanics : MonoBehaviour
 {
     public Text textElement;
     public IntVariable displayIntValue;
+    public FloatVariable displayFloatValue;
     public string label;
     public int padLeft;
 
@@ -23,6 +24,12 @@ public class DisplayMechanics : MonoBehaviour
         if (displayIntValue != null)
         {
             var score = displayIntValue.Value.ToString().PadLeft(padLeft, '0');
+            textElement.text = label + ": " + score;
+        }
+
+        if (displayFloatValue != null)
+        {
+            var score = displayFloatValue.Value.ToString().PadLeft(padLeft, '0');
             textElement.text = label + ": " + score;
         }
     }

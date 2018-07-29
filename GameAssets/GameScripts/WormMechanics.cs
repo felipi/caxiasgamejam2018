@@ -8,6 +8,7 @@ public class WormMechanics : MonoBehaviour {
 	public GameEvent OnHold;
 	public GameEvent Offscreen;
 	public GameEvent MakeScore;
+
     public GameEvent OnJump;
     public GameEvent OnPerfectJump;
 	public float impulseMagnitude;
@@ -24,7 +25,6 @@ public class WormMechanics : MonoBehaviour {
 			_body.isKinematic = true;
 		}
 	}
-
 	void Update () {
 		 if (Input.GetMouseButtonDown(0)) {
 			 	Debug.Log("CLICK");
@@ -38,6 +38,7 @@ public class WormMechanics : MonoBehaviour {
 
 		 CheckIfOnScreen();
 	}
+
 
     public void DetachFromParent()
     {
@@ -62,7 +63,7 @@ public class WormMechanics : MonoBehaviour {
             _launched = false;
         }
     }
-    
+
     public void LaunchWorm()
     {
         if (_body && !_launched)

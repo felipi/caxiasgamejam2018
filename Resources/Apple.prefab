@@ -80,9 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 532cfa8ef26bb2848ad0f417e0be33d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
+  verticalVelocity: {fileID: 11400000, guid: c3c38b02a5a94604896e80866f78ebf0, type: 2}
+  rotationVelocity: {fileID: 11400000, guid: 93cb88677f97e8a49898d495196af6f9, type: 2}
   baseAngularVelocity: 1.8
   baseVelocity: 2.4
+  level: {fileID: 11400000, guid: 282a735f76e657647881398c7dd155f3, type: 2}
 --- !u!212 &21250208
 SpriteRenderer:
   m_ObjectHideFlags: 1
