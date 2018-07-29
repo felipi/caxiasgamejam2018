@@ -35,6 +35,7 @@ public class AppleMechanics : MonoBehaviour
             _body.velocity = this.calculateGravity();
             _body.angularVelocity = this.calculateAngularVelocity();
         }
+        
 
         Vector2 bounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
 
@@ -65,12 +66,26 @@ public class AppleMechanics : MonoBehaviour
 
     private Vector2 calculateGravity()
     {
+        var x = 0;
+
+        if (_body.position.y < -4)
+        {
+            if (_body.position.x > 0)
+            {
+                x = -4;
+            }
+            if (_body.position.x < 0)
+            {
+                x = 4;
+            }
+        }
+        
         if (level && level.Value > 3)
         {
             var y = verticalVelocity.Value + (level.Value * 20 / 100);
-            return new Vector2(0, y * -1);
+            return new Vector2(x, y * -1);
         }
         
-        return new Vector2(0, verticalVelocity.Value * -1);
+        return new Vector2(x, verticalVelocity.Value * -1);
     }
 }
