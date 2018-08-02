@@ -91,7 +91,7 @@ public class BoosterMechanics : MonoBehaviour
 
         rotationVelocity.SetValue(this.oldRotationVelocity / 4f * levelApply);
         verticalVelocity.SetValue(this.oldVerticalVelocity / 4f * levelApply);
-        coldownSpawn.SetValue(this.oldColdownSpawn * 2f * levelApply);
+        //coldownSpawn.SetValue(this.oldColdownSpawn * 2f * levelApply);
 
         _isActive = true;
     }
