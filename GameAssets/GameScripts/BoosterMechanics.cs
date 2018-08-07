@@ -74,14 +74,24 @@ public class BoosterMechanics : MonoBehaviour
         if (_isActive) return;
         if (ActivateBoosterEvent) ActivateBoosterEvent.Raise();
 
+        float levelApply = 1;
 
-            this.oldVerticalVelocity = verticalVelocity.Value;
-            this.oldRotationVelocity = rotationVelocity.Value;
+        if (level.Value > 3)
+        {
+            levelApply = levelApply + ((level.Value - 3) * .1f);
+            if (levelApply >= 2)
+            {
+                levelApply = 2;
+            }
+        }
+
+        this.oldVerticalVelocity = verticalVelocity.Value;
+        this.oldRotationVelocity = rotationVelocity.Value;
         this.oldColdownSpawn = coldownSpawn.Value;
 
-        rotationVelocity.SetValue(this.oldRotationVelocity / 4f);
-        verticalVelocity.SetValue(this.oldVerticalVelocity / 4f);
-        coldownSpawn.SetValue(this.oldColdownSpawn * 2f);
+        rotationVelocity.SetValue(this.oldRotationVelocity / 4f * levelApply);
+        verticalVelocity.SetValue(this.oldVerticalVelocity / 4f * levelApply);
+        //coldownSpawn.SetValue(this.oldColdownSpawn * 2f * levelApply);
 
         _isActive = true;
     }

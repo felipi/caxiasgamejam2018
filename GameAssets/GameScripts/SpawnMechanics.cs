@@ -15,7 +15,7 @@ public class SpawnMechanics : MonoBehaviour
     // Use this for initialization
     public void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -25,8 +25,21 @@ public class SpawnMechanics : MonoBehaviour
         {
             if (currentTime <= 0)
             {
+                var levelApply = 1f;
+
+                if (level.Value > 3)
+                {
+                    levelApply = levelApply - ((level.Value - 3) * .1f);
+                    if(levelApply <= .5f)
+                    {
+                        levelApply = .5f;
+                    }
+                }
+
+                Debug.Log("Apply: " + levelApply);
+
                 this.Spawn();
-                this.currentTime = coldownSpawn.Value * cooldownModifier;
+                this.currentTime = coldownSpawn.Value * cooldownModifier * levelApply;
                 return;
             }
 

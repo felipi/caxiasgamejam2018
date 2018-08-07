@@ -16,6 +16,8 @@ public class AppleMechanics : MonoBehaviour
     private Rigidbody2D _body;
     private bool invertRotationAngle;
 
+    private Vector2 gravity;
+
     void Start()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,6 +26,7 @@ public class AppleMechanics : MonoBehaviour
         _body.angularVelocity = 90 * rotationVelocity.Value;
         invertRotationAngle = (Random.value < 0.5f);
         if(invertRotationAngle) _body.angularVelocity *= -1;
+        gravity = new Vector2(0, 0);
     }
 
     void Update()
@@ -47,21 +50,11 @@ public class AppleMechanics : MonoBehaviour
 
     private float calculateAngularVelocity()
     {
-        if (level && level.Value > 3)
-        {
-            if (level.Value > 0 && level.Value < 4)
-            {
-                return _body.angularVelocity;
-            }
+        float _velocity = rotationVelocity.Value;
 
-            float nvelocity = baseAngularVelocity + (level.Value * 10 / 100);
-            if(invertRotationAngle) nvelocity *= -1;
+        if (invertRotationAngle) _velocity *= -1;
 
-            return 90 * nvelocity;
-        }
-        float ovelocity =  rotationVelocity.Value;
-        if(invertRotationAngle) ovelocity *= -1;
-        return 90 * ovelocity;
+        return 90 * _velocity;
     }
 
     private Vector2 calculateGravity()
@@ -79,15 +72,10 @@ public class AppleMechanics : MonoBehaviour
                 x = -(_body.position.x*2);
             }
         }
-        
-        /*
-        if (level && level.Value > 3)
-        {
-            var y = verticalVelocity.Value + (level.Value * 20 / 100);
-            return new Vector2(x, y * -1);
-        }
-        */
-        
-        return new Vector2(x, verticalVelocity.Value * -1);
+
+        gravity.x = x;
+        gravity.y = verticalVelocity.Value * -1;
+
+        return gravity;
     }
 }
